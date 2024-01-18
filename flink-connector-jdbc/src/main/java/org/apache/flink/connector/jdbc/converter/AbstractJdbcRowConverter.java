@@ -77,7 +77,7 @@ public abstract class AbstractJdbcRowConverter implements JdbcRowConverter {
         for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
             Object field;
             if (rowType.getTypeAt(pos) instanceof FloatType) {
-                field = resultSet.getObject(pos + 1, rowType.getTypeAt(pos).getDefaultConversion());
+                field = resultSet.getObject(pos + 1, Float.class);
             } else {
                 field = resultSet.getObject(pos + 1);
             }
