@@ -26,7 +26,6 @@ import org.apache.flink.table.data.RowData;
 import org.apache.flink.table.data.StringData;
 import org.apache.flink.table.data.TimestampData;
 import org.apache.flink.table.types.logical.DecimalType;
-import org.apache.flink.table.types.logical.FloatType;
 import org.apache.flink.table.types.logical.LogicalType;
 import org.apache.flink.table.types.logical.LogicalTypeRoot;
 import org.apache.flink.table.types.logical.RowType;
@@ -76,7 +75,7 @@ public abstract class AbstractJdbcRowConverter implements JdbcRowConverter {
         GenericRowData genericRowData = new GenericRowData(rowType.getFieldCount());
         for (int pos = 0; pos < rowType.getFieldCount(); pos++) {
             Object field;
-            if (rowType.getTypeAt(pos) instanceof FloatType) {
+            if (Float.class == rowType.getTypeAt(pos).getDefaultConversion()) {
                 field = resultSet.getObject(pos + 1, Float.class);
             } else {
                 field = resultSet.getObject(pos + 1);
