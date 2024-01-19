@@ -169,6 +169,13 @@ under the License.
 			<scope>test</scope>
 		</dependency>
 
+		<!-- For dependency jdk21 lost package -->
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+
 		<!-- Test dependencies -->
 
 		<dependency>
